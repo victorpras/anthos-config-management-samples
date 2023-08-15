@@ -16,4 +16,17 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: hello-world
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: my-container
+        image: k8s.gcr.io/ubuntu-slim:0.1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done"]
 # [END anthosconfig_quickstart_namespaces_hello_namespace] 
