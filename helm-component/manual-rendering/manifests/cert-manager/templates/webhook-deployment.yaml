@@ -66,6 +66,16 @@ spec:
             timeoutSeconds: 1
             successThreshold: 1
             failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 6080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
           env:
           - name: POD_NAMESPACE
             valueFrom:
