@@ -67,6 +67,7 @@ spec:
             successThreshold: 1
             failureThreshold: 3
           readinessProbe:
+            enabled: false
             httpGet:
               path: /healthz
               port: 6080
